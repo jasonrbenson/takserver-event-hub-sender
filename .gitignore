@@ -1,0 +1,102 @@
+# Gradle
+.gradle/
+build/
+!gradle/wrapper/gradle-wrapper.jar
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+# Java
+*.class
+*.log
+*.jar
+*.war
+*.ear
+*.zip
+*.tar.gz
+*.rar
+hs_err_pid*
+replay_pid*
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+.vscode/
+*.swp
+*.swo
+
+# Eclipse
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+bin/
+!**/src/main/**/bin/
+!**/src/test/**/bin/
+
+# NetBeans
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+
+# Mac
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Linux
+*~
+
+# Logs
+logs/
+*.log
+log/
+
+# Runtime data
+pids
+*.pid
+*.seed
+*.pid.lock
+
+# Temporary files
+tmp/
+temp/
+*.tmp
+*.temp
+
+# TAK Server specific
+ignite/
+
+# Configuration files with sensitive data
+conf/plugins/tak.server.plugins.AzureEventHubSender.yaml
+*.p12
+*.pem
+*.pfx
+*.keystore
+*.truststore
+takserver.p12
+admin.p12
+user.p12
+iphone.p12
+server.p12
+truststore-root.p12
+ca.pem
+admin.pem
+user.pem
+tak-server.pref
+*.zip
+
+# Keep example configuration files
+!*.example
+!*.sample
+!*.template

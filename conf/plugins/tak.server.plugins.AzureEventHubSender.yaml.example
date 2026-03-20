@@ -1,0 +1,111 @@
+# TAK Server Azure Event Hub Sender Plugin Configuration
+# Multi-Instance Format (Recommended)
+
+azureEventHub:
+  instances:
+    - name: "primary"
+      namespace: "your-primary-eh.servicebus.usgovcloudapi.net"
+      eventHubName: "cot-events"
+      
+      authentication:
+        tenantId: "your-azure-tenant-id"
+        clientId: "your-application-client-id"
+        clientSecret: "your-application-client-secret"
+        authorityHost: "https://login.microsoftonline.us/"
+      
+      processing:
+        threadPoolSize: "4"
+        partitionStrategy: "roundRobin"
+        partitionKey: ""
+        partitionId: ""
+        batchingEnabled: "false"
+        batchFlushIntervalMs: "1000"
+        batchMaxSize: "100"
+        retry:
+          maxRetries: "3"
+          delaySeconds: "2"
+          maxDelaySeconds: "30"
+          timeoutMinutes: "1"
+      
+      messageProcessing:
+        validateXml: "true"
+        logMessageDetails: "false"
+        maxMessageSizeKB: "256"
+        compressMessages: "false"
+      
+      metrics:
+        enabled: "true"
+        intervalMinutes: "10"
+      
+      takServer:
+        sourceGroups: "__ANON__"
+
+    - name: "secondary"
+      namespace: "your-secondary-eh.servicebus.windows.net"
+      eventHubName: "cot-events-dev"
+      
+      authentication:
+        tenantId: "different-tenant-id"
+        clientId: "different-client-id"
+        clientSecret: "different-client-secret"
+        authorityHost: "https://login.microsoftonline.com/"
+      
+      processing:
+        threadPoolSize: "4"
+        partitionStrategy: "partitionKey"
+        partitionKey: "takserver-sender"
+        partitionId: ""
+        batchingEnabled: "true"
+        batchFlushIntervalMs: "2000"
+        batchMaxSize: "50"
+        retry:
+          maxRetries: "3"
+          delaySeconds: "2"
+          maxDelaySeconds: "30"
+          timeoutMinutes: "1"
+      
+      messageProcessing:
+        validateXml: "true"
+        logMessageDetails: "false"
+        maxMessageSizeKB: "256"
+        compressMessages: "false"
+      
+      metrics:
+        enabled: "true"
+        intervalMinutes: "10"
+      
+      takServer:
+        sourceGroups: "OPS_GROUP"
+
+# --- Legacy Single-Instance Format (Backwards Compatible) ---
+# azureEventHub:
+#   namespace: "your-eh-namespace.servicebus.usgovcloudapi.net"
+#   eventHubName: "cot-events"
+#   authentication:
+#     tenantId: "your-azure-tenant-id"
+#     clientId: "your-application-client-id"
+#     clientSecret: "your-application-client-secret"
+#     authorityHost: "https://login.microsoftonline.us/"
+#   processing:
+#     threadPoolSize: "4"
+#     partitionStrategy: "roundRobin"
+#     partitionKey: ""
+#     partitionId: ""
+#     batchingEnabled: "false"
+#     batchFlushIntervalMs: "1000"
+#     batchMaxSize: "100"
+#     retry:
+#       maxRetries: "3"
+#       delaySeconds: "2"
+#       maxDelaySeconds: "30"
+#       timeoutMinutes: "1"
+#   messageProcessing:
+#     validateXml: "true"
+#     logMessageDetails: "false"
+#     maxMessageSizeKB: "256"
+#     compressMessages: "false"
+#   metrics:
+#     enabled: "true"
+#     intervalMinutes: "10"
+#   takServer:
+#     sourceGroups: "__ANON__"

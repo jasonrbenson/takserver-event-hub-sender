@@ -1,0 +1,42 @@
+name: Feature Request
+description: Propose a new capability
+labels: ["feature"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Have an idea for something new? Describe the feature and why it would be valuable.
+
+  - type: textarea
+    id: description
+    attributes:
+      label: Description
+      description: A clear summary of the feature you'd like to see.
+    validations:
+      required: true
+
+  - type: textarea
+    id: motivation
+    attributes:
+      label: Motivation
+      description: Why is this feature needed? What problem does it solve or what use case does it enable?
+    validations:
+      required: true
+
+  - type: textarea
+    id: proposed-solution
+    attributes:
+      label: Proposed Solution
+      description: How do you think this should work? Include any design ideas or technical approach.
+
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives Considered
+      description: Other approaches you've considered and why they don't fully solve the problem.
+
+  - type: textarea
+    id: context
+    attributes:
+      label: Additional Context
+      description: Any other information, diagrams, or references.
