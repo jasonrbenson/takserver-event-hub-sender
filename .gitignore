@@ -100,3 +100,6 @@ tak-server.pref
 !*.example
 !*.sample
 !*.template
+
+# Gradle properties with credentials
+gradle.properties

@@ -1,0 +1,9 @@
+takserver_plugins_version = 5.2-release-16
+
+# TAK Server artifact repository credentials (choose one method):
+# Method 1: API Key
+# takGovApiKey=your-api-key
+#
+# Method 2: Username/Password
+# takGovUser=your-username
+# takGovPassword=your-password
